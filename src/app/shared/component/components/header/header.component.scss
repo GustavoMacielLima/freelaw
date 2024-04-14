@@ -1,0 +1,38 @@
+.header{
+    background: rgb(177,45,253);
+    background: linear-gradient(45deg, rgba(177,45,253,0.49343487394957986) 0%, rgba(34,64,195,1) 100%);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &_tools{
+        &_personal-menu{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            &_name{
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            &_badge{
+                border-radius: 50%;
+                background: no-repeat;
+                margin-right: 0.5rem;
+                width: 2rem;
+                height: 2rem;
+                background-color: rgba(0, 243, 146, 0.651);
+                color: white;
+            }
+        }
+
+        &_personal-info{
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+        }
+    }
+}

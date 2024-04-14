@@ -1,0 +1,117 @@
+//COMMON TAGS
+body{
+    background-color: rgb(235, 235, 235);
+}
+
+input {
+    padding: .5rem;
+    border-radius: .5rem;
+    border: 1px solid #c2c2c2;
+    margin: .5rem 0;
+}
+
+section{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+//CUSTOM CLASS
+.default-container{
+    background-color: white;
+    height: 90%;
+    width: 90%;
+    display: inline-block;
+    border-radius: .5rem;
+
+    -webkit-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.25);
+    box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.25);
+}
+
+.custom-radio-input-button{
+    display: flex;
+    flex-direction: column;
+    margin-top: .5rem;
+}
+
+.input-search{
+    width: 30vw;
+}
+
+//COMMON CLASS
+.margin-0{
+    margin: .5rem;
+}
+
+.margin-1{
+    margin: 1rem;
+}
+
+.margin-2{
+    margin: 2rem;
+}
+
+.margin-left-0{
+    margin-left: .5rem;
+}
+
+.margin-left-1{
+    margin-left: 1rem;
+}
+
+.margin-left-2{
+    margin-left: 2rem;
+}
+
+.padding-0{
+    padding: .5rem;
+}
+
+.padding-1{
+    padding: 1rem;
+}
+
+.padding-2{
+    padding: 2rem;
+}
+
+.padding-top-0{
+    padding-top: .5rem;
+}
+
+.padding-top-1{
+    padding-top: 1rem;
+}
+
+.padding-top-2{
+    padding-top: 2rem;
+}
+
+.padding-right-0{
+    padding-right: .5rem;
+}
+
+.padding-right-1{
+    padding-right: 1rem;
+}
+
+.padding-right-2{
+    padding-right: 2rem;
+}
+
+.color-white{
+    color: white;
+}
+
+.mouse-pointer{
+    cursor: pointer;
+}
+
+.back-page-arrow{
+    padding-right: 1rem;
+    cursor: pointer;
+}

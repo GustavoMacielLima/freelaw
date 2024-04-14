@@ -1,0 +1,27 @@
+<div class="litigation-form-modal">
+    <freelaw-dialog-header [title]="title" (closeDialog)="close()"></freelaw-dialog-header>
+    <mat-dialog-content class="litigation-form-modal_content">
+        <freelaw-custom-input name="Número do Processo" placeholder="xxxxxxx-xx.xxxx.8.13.xxxx" mask="0000000-00.0000.0.00.0000" [(value)]="litigation.litigationNumber" [required]="true"></freelaw-custom-input>
+        <freelaw-custom-input name="Adovogado" [(value)]="litigation.lawer"></freelaw-custom-input>
+        <freelaw-custom-input name="Nome da Parte" [(value)]="litigation.partName" [required]="true"></freelaw-custom-input>
+        <freelaw-custom-input name="Nome Social da Parte" [(value)]="litigation.socialPartName"></freelaw-custom-input>
+        <div class="custom-radio-input-button">
+          <span class="text text_small margin-left-0">Documento</span>
+          <mat-radio-group
+            [(ngModel)]="selectedSocialNumberType">
+              <mat-radio-button [value]="socialNumberTypes.CPF">
+                <span class="text text_small padding-right-2">{{socialNumberTypes.CPF}}</span>
+              </mat-radio-button>
+              <mat-radio-button class="text text_small" [value]="socialNumberTypes.CNPJ">
+                <span class="text text_small">{{socialNumberTypes.CNPJ}}</span>
+              </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <freelaw-custom-input *ngIf="selectedSocialNumberType === 'CPF'" name="CPF" [(value)]="litigation.partSocialNumber" placeholder="xxx.xxx.xxx-xx" mask="000.000.000-00" [required]="true"></freelaw-custom-input>
+        <freelaw-custom-input *ngIf="selectedSocialNumberType === 'CNPJ'" name="CNPJ" [(value)]="litigation.partSocialNumber" placeholder="xx.xxx.xxx/xxxx-xx" mask="00.000.000/0000-00" [required]="true"></freelaw-custom-input>
+    </mat-dialog-content>
+    <mat-dialog-actions class="litigation-form-modal_actions">
+      <button mat-flat-button color="secundary" (click)="close()">Cancelar</button>
+      <button mat-flat-button color="primary" (click)="save()">Salvar</button>
+    </mat-dialog-actions>
+</div>

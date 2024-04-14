@@ -1,0 +1,112 @@
+<freelaw-header></freelaw-header>
+<section class="litigation">
+    <freelaw-page-title pageName="Processos"></freelaw-page-title>
+    <div class="default-container">
+        <freelaw-rows-not-found
+            *ngIf="!litigations.length"
+            message="Nenhum processo encontrado!"
+            buttonName="Novo Processo"
+            (createRow)="openLitigationModal()"
+        ></freelaw-rows-not-found>
+        <div *ngIf="litigations.length" class="litigation_container_content">
+            <div class="litigation_container_content_table-title">
+                <freelaw-custom-input class="input-search" [hideName]="true" placeholder="Pesquisar por Processo e Número do Documento" (valueChange)="search($event)"></freelaw-custom-input>
+                <button
+                    mat-flat-button color="primary"
+                    id="create-litigation-button"
+                    aria-label="Novo Processo"
+                    aria-live="true"
+                    aria-atomic="true"
+                    (click)="openLitigationModal()"
+                    (keyup.enter)="openLitigationModal()"
+                    class="text"
+                >
+                    Novo Processo
+                </button>
+            </div>
+            <div class="litigation_container_content_table">
+                <table mat-table [dataSource]="litigations">
+    
+                    <!-- Litigation Number Column -->
+                    <ng-container matColumnDef="litigationNumber">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <span class="text text_bold">
+                                Nº do Processo
+                            </span>
+                        </th>
+                        <td class="text" mat-cell *matCellDef="let element">{{element.litigationNumber | mask: '0000000-00.0000.0.00.0000'}}</td>
+                    </ng-container>
+    
+                    <!-- Part Name Column -->
+                    <ng-container matColumnDef="partName">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <div class="litigation_container_content_table_part-name">
+                                <span class="text text_bold">
+                                    Nome da Parte
+                                </span>
+                            </div>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="litigation_container_content_table_part-name">
+                                <span class="text">{{element.partName}}</span>
+                                <span class="text text_secundary text_small">{{element.socialPartName}}</span>
+                            </div>
+                        </td>
+                    </ng-container>
+    
+                    <!-- Social Numbe Column -->
+                    <ng-container matColumnDef="partSocialNumber">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <span class="text text_bold">
+                                Documento
+                            </span>
+                        </th>
+                        <td class="text" mat-cell *matCellDef="let element">
+                            {{element.partSocialNumber | mask: element.partSocialNumberType === 'CPF' ? '000.000.000-00' : '00.000.000/0000-00'}}
+                        </td>
+                    </ng-container>
+    
+                    <!-- Lawer Column -->
+                    <ng-container matColumnDef="lawer">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <span class="text text_bold">
+                                Adovogado
+                            </span>
+                        </th>
+                        <td class="text" mat-cell *matCellDef="let element"> {{element.lawer}} </td>
+                    </ng-container>
+
+                    <!-- Tools Column -->
+                    <ng-container matColumnDef="tools">
+                        <th mat-header-cell *matHeaderCellDef aria-label="row actions"></th>
+                        <td mat-cell *matCellDef="let element"> 
+                            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                                <mat-icon>more_vert</mat-icon>
+                            </button>
+                            <mat-menu #menu="matMenu">
+                                <button mat-menu-item (click)="openLitigationModal(element)">
+                                <span>Editar</span>
+                                </button>
+                                <button mat-menu-item (click)="delete(element)">
+                                <span>Excluir</span>
+                                </button>
+                            </mat-menu>
+                        </td>
+                    </ng-container>
+                
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+            <mat-paginator #paginator
+               class="litigation_container_content_paginator"
+               (page)="handlePageEvent($event)"
+               [length]="length"
+               [pageSize]="pageSize"
+               [pageIndex]="pageIndex"
+               [pageSizeOptions]="pageSizeOptions"
+               aria-label="Select page">
+            </mat-paginator>
+        </div>
+    </div>
+</section>

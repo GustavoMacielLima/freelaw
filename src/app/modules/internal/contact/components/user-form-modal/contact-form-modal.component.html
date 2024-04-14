@@ -1,0 +1,14 @@
+<div class="user-form-modal">
+    <freelaw-dialog-header [title]="title" (closeDialog)="close()"></freelaw-dialog-header>
+    <mat-dialog-content class="user-form-modal_content">
+        <freelaw-custom-input name="Nome" [(value)]="contact.name" [required]="true"></freelaw-custom-input>
+        <freelaw-custom-input name="Sobrenome" [(value)]="contact.surname" [required]="true"></freelaw-custom-input>
+        <freelaw-custom-input name="Email" [(value)]="contact.email" [required]="true"></freelaw-custom-input>
+        <freelaw-custom-input name="Telefone" [(value)]="contact.phone" placeholder="(xx) xxxxx-xxxx" [mask]="'(00) 00000-0000'"></freelaw-custom-input>
+        <freelaw-custom-input name="Data de Nascimento" [(value)]="contact.birthday" placeholder="dd/mm/aaaa" mask="00/00/0000"></freelaw-custom-input>
+    </mat-dialog-content>
+    <mat-dialog-actions class="user-form-modal_actions">
+      <button mat-flat-button color="secundary" (click)="close()">Cancelar</button>
+      <button mat-flat-button color="primary" (click)="save()">Salvar</button>
+    </mat-dialog-actions>
+</div>

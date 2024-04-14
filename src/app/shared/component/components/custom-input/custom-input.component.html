@@ -1,0 +1,7 @@
+<div class="custom-input padding-top-0">
+    <div *ngIf="!hideName" class="text text_small margin-left-0">
+        {{name}}
+        <span *ngIf="required">*</span>
+    </div>
+    <input class="margin-0" [placeholder]="placeholder" [(ngModel)]="value" [mask]="mask">
+</div>

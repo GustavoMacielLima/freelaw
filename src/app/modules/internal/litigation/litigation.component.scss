@@ -1,0 +1,37 @@
+.litigation{
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+
+    &_container{
+
+        &_content{
+            margin: 1rem;
+            height: 95%;
+            position: relative;
+            
+            ::ng-deep mat-paginator{
+                bottom: 0;
+                position: absolute;
+                width: 100%;
+            }
+            
+            &_table-title{
+                justify-content: space-between;
+                display: flex;
+                align-items: baseline;
+                padding-bottom: 2rem;
+            }
+
+            &_table{
+                height: 80%;
+                overflow: auto;
+
+                &_part-name{
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}

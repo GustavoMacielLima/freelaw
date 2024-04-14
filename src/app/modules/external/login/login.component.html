@@ -1,0 +1,26 @@
+<section class="login">
+    <img src="https://freelaw.work/wp-content/uploads/2022/06/Logo-Freelaw-Branca.webp" alt="">
+    <div class="login_container">
+        <input
+        type="email"
+        placeholder="Email"
+        id="login-email"
+        aria-label="Email"
+        aria-live="true"
+        aria-atomic="true"
+        [(ngModel)]="email">
+        <input
+        type="password"
+        placeholder="Senha"
+        id="login-password"
+        aria-label="Password"
+        aria-live="true"
+        aria-atomic="true"
+        [(ngModel)]="password"
+        >
+        <button mat-flat-button color="primary" (click)="login()" (keyup.enter)="login()"
+            id="login-button" aria-label="Login" aria-live="true" aria-atomic="true">
+            Login
+        </button>
+    </div>
+</section>

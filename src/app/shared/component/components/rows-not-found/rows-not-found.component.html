@@ -1,0 +1,15 @@
+<div class="rows-not-found">
+    <span class="margin-0 text text_large text_bold">{{message}}</span>
+    <button
+        mat-flat-button color="primary"
+        id="not-found-button"
+        [attr.aria-label]="buttonName"
+        aria-live="true"
+        aria-atomic="true"
+        (click)="create()"
+        (keyup.enter)="create()"
+        class="text"
+    >
+        {{buttonName}}
+    </button>
+</div>

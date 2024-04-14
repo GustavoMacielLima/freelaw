@@ -1,0 +1,29 @@
+<mat-toolbar class="header">
+    <img class="mouse-pointer" src="https://freelaw.work/wp-content/uploads/2022/06/Logo-Freelaw-Branca.webp" (click)="goTo('main')">
+    <div class="header_tools">
+        <button mat-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <div class="header_tools_personal-menu">
+                <div class="header_tools_personal-menu_badge">
+                    <span>GM</span>
+                </div>
+                <span class="header_tools_personal-menu_name color-white">Gustavo</span>
+                <mat-icon class="icons color-white">keyboard_arrow_down</mat-icon>
+            </div>
+        </button>
+        <mat-menu #menu="matMenu">
+            <div class="header_tools_personal-info">
+                <span class="text">Gustavo Maciel Real de Lima</span>
+                <span class="padding-top-0 text text_small text_secundary">Engenheiro de Software</span>
+                <span class="text text_small text_secundary">{{'gustavomacielreallima@gmail.com'}}</span>
+                <button
+                    mat-button color="primary"
+                    (click)="logout()"
+                    (keyup.enter)="logout()"
+                    class="text"
+                >
+                    Sair
+                </button>
+            </div>
+        </mat-menu>
+    </div>
+</mat-toolbar>

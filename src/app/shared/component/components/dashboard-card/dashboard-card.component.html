@@ -1,0 +1,16 @@
+<div class="dashboard-card">
+    <span class="text text_large">{{title}}</span>
+    <span class="text text_secundary text_small">{{subtitle}}</span>
+    <span class="text text_secundary dashboard-card_count">{{counter}}</span>
+    <button
+        mat-flat-button color="primary"
+        [id]="title + '-button'"
+        [attr.aria-label]="title"
+        aria-live="true"
+        aria-atomic="true"
+        (click)="goTo()"
+        (keyup.enter)="goTo()"
+    >
+        {{buttonMessage}}
+    </button>
+</div>

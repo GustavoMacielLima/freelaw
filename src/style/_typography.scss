@@ -1,0 +1,29 @@
+.text{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    font-size: 14px;
+
+    &_extra-large{
+        font-size: 18px;
+    }
+
+    &_large{
+        font-size: 16px;
+    }
+
+    &_small{
+        font-size: 12px;
+    }
+
+    &_extra-small{
+        font-size: 10px;
+    }
+
+    &_bold{
+        font-weight: bold;
+    }
+
+    &_secundary{
+        color: rgba(140,140,140);
+    }
+}

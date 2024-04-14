@@ -1,0 +1,98 @@
+<freelaw-header></freelaw-header>
+<section class="user">
+    <freelaw-page-title pageName="Usuário"></freelaw-page-title>
+    <div class="user_container default-container">
+        <freelaw-rows-not-found *ngIf="!contacts.length" message="Nenhum usuário encontrado!" buttonName="Novo Usuário" (createRow)="openContactModal()"></freelaw-rows-not-found>
+        <div *ngIf="contacts.length" class="user_container_content">
+            <div class="user_container_content_table-title">
+                <freelaw-custom-input class="input-search" [hideName]="true" placeholder="Pesquisar por Nome e Email" [value]="searchText" (valueChange)="search($event)"></freelaw-custom-input>
+                <button
+                    mat-flat-button color="primary"
+                    id="create-user-button"
+                    aria-label="Novo Usuário"
+                    aria-live="true"
+                    aria-atomic="true"
+                    (click)="openContactModal()"
+                    (keyup.enter)="openContactModal()"
+                    class="text"
+                >
+                    Novo Usuário
+                </button>
+            </div>
+            <div class="user_container_content_table">
+                <table mat-table [dataSource]="contacts">
+    
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <span class="text text_bold">
+                                Nome
+                            </span>
+                        </th>
+                        <td class="text" mat-cell *matCellDef="let element"> {{element.name + ' ' + element.surname}} </td>
+                    </ng-container>
+    
+                    <!-- Email Column -->
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <span class="text text_bold">
+                                Email
+                            </span>
+                        </th>
+                        <td class="text" mat-cell *matCellDef="let element"> {{element.email}} </td>
+                    </ng-container>
+    
+                    <!-- Telefone Column -->
+                    <ng-container matColumnDef="phone">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <span class="text text_bold">
+                                Telefone
+                            </span>
+                        </th>
+                        <td class="text" mat-cell *matCellDef="let element"> {{element.phone | mask: '(00) 00000-0000'}} </td>
+                    </ng-container>
+    
+                    <!-- Birthday Column -->
+                    <ng-container matColumnDef="birthday">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <span class="text text_bold">
+                                Data de Nascimento 
+                            </span>
+                        </th>
+                        <td class="text" mat-cell *matCellDef="let element"> {{element.birthday | mask: '00/00/0000'}} </td>
+                    </ng-container>
+
+                    <!-- Tools Column -->
+                    <ng-container matColumnDef="tools">
+                        <th mat-header-cell *matHeaderCellDef aria-label="row actions"></th>
+                        <td mat-cell *matCellDef="let element"> 
+                            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                                <mat-icon>more_vert</mat-icon>
+                            </button>
+                            <mat-menu #menu="matMenu">
+                                <button mat-menu-item (click)="openContactModal(element)">
+                                <span>Editar</span>
+                                </button>
+                                <button mat-menu-item (click)="delete(element)">
+                                <span>Excluir</span>
+                                </button>
+                            </mat-menu>
+                        </td>
+                    </ng-container>
+                
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+            <mat-paginator #paginator
+               class="user_container_content_paginator"
+               (page)="handlePageEvent($event)"
+               [length]="length"
+               [pageSize]="pageSize"
+               [pageIndex]="pageIndex"
+               [pageSizeOptions]="pageSizeOptions"
+               aria-label="Select page">
+            </mat-paginator>
+        </div>
+    </div>
+</section>

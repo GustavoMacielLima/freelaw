@@ -1,0 +1,37 @@
+.dashboard-card{
+    background-color: white;
+    border-radius: .5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 20vh;
+    width: 20vw;
+    padding: 1rem;
+    margin: 1rem 0;
+
+    &_count{
+        font-size: 5rem;
+        align-self: end;
+        padding: 1rem 0;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .dashboard-card{
+        width: 25vw;
+        height: 22vh;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .dashboard-card{
+        width: 35vw;
+        height: 22vh;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .dashboard-card{
+        width: 90%;
+    }
+}
