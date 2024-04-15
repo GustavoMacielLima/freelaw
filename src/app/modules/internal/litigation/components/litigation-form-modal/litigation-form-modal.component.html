@@ -21,7 +21,21 @@
         <freelaw-custom-input *ngIf="selectedSocialNumberType === 'CNPJ'" name="CNPJ" [(value)]="litigation.partSocialNumber" placeholder="xx.xxx.xxx/xxxx-xx" mask="00.000.000/0000-00" [required]="true"></freelaw-custom-input>
     </mat-dialog-content>
     <mat-dialog-actions class="litigation-form-modal_actions">
-      <button mat-flat-button color="secundary" (click)="close()">Cancelar</button>
-      <button mat-flat-button color="primary" (click)="save()">Salvar</button>
+      <button mat-flat-button color="secundary"
+        id="cancel-button"
+        aria-label="Cancelar"
+        aria-live="true"
+        aria-atomic="true"
+        (click)="close()"
+        (keyup.enter)="close()"
+      >Cancelar</button>
+      <button mat-flat-button color="primary"
+        (click)="save()"
+        (keyup.enter)="close()"
+        id="save-button"
+        aria-label="Salvar"
+        aria-live="true"
+        aria-atomic="true"
+      >Salvar</button>
     </mat-dialog-actions>
 </div>

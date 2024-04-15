@@ -3,5 +3,10 @@
         {{name}}
         <span *ngIf="required">*</span>
     </div>
-    <input class="margin-0" [placeholder]="placeholder" [(ngModel)]="value" [mask]="mask">
+    <input class="margin-0" [placeholder]="placeholder" [(ngModel)]="value" [mask]="mask"
+        [attr.id]="name"
+        [attr.aria-label]="name || placeholder"
+        aria-live="true"
+        aria-atomic="true"
+    >
 </div>

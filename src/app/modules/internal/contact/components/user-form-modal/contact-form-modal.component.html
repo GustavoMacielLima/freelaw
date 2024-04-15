@@ -8,7 +8,21 @@
         <freelaw-custom-input name="Data de Nascimento" [(value)]="contact.birthday" placeholder="dd/mm/aaaa" mask="00/00/0000"></freelaw-custom-input>
     </mat-dialog-content>
     <mat-dialog-actions class="user-form-modal_actions">
-      <button mat-flat-button color="secundary" (click)="close()">Cancelar</button>
-      <button mat-flat-button color="primary" (click)="save()">Salvar</button>
+      <button mat-flat-button color="secundary"
+        id="cancel-button"
+        aria-label="Cancelar"
+        aria-live="true"
+        aria-atomic="true"
+        (click)="close()"
+        (keyup.enter)="close()"
+      >Cancelar</button>
+      <button mat-flat-button color="primary"
+        (click)="save()"
+        (keyup.enter)="close()"
+        id="save-button"
+        aria-label="Salvar"
+        aria-live="true"
+        aria-atomic="true"
+      >Salvar</button>
     </mat-dialog-actions>
 </div>
